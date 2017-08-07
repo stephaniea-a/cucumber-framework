@@ -1,6 +1,5 @@
 Given(/^I access the BBC home page$/) do
-  @driver = Watir::Browser.new :chrome
-  @driver.goto 'https://www.bbc.co.uk/'
+  home_page.visit
 end
 
 And(/^I access the sign in page$/) do
