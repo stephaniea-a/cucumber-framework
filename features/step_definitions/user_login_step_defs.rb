@@ -3,26 +3,22 @@ Given(/^I access the BBC home page$/) do
 end
 
 And(/^I access the sign in page$/) do
-  @driver.link(text: 'Sign in').click
+  home_page.click_sign_in_link
 end
 
 When(/^I select register$/) do
-  @driver.link(text: 'Register now').click
+  sign_in_page.click_register_link
 end
 
 And(/^I input my date of birth$/) do
-  @driver.text_field(id: 'day-input').set('01')
-  @driver.text_field(id: 'month-input').set('november')
-  @driver.text_field(id: 'year-input').set('2000')
-  @driver.button(text: 'Next').click
+  register_page.input_dob_fields(01,02,1994)  
+  register_page.click_next_button
 end
 
 And(/^I input necessary register details with the password details (.*)$/) do |password|
-  @driver.text_field(id: 'email-input').set('test@gmail.com')
-  @driver.text_field(id: 'password-input').set(password)
-  @driver.text_field(id: 'hometown-input').set('a')
+  register_page.input_register_fields(password)
 end
 
 Then(/^I receive the correct error (.*)$/) do |error_message|
-  @driver.element(id: 'form-error-password').text == error_message
+  register_page.check_error(error_message)
 end
