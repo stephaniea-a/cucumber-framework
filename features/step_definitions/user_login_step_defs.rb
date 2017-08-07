@@ -12,13 +12,18 @@ When(/^I select register$/) do
 end
 
 And(/^I input my date of birth$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @driver.text_field(id: 'day-input').set('01')
+  @driver.text_field(id: 'month-input').set('november')
+  @driver.text_field(id: 'year-input').set('2000')
+  @driver.button(text: 'Next').click
 end
 
 And(/^I input necessary register details with the password details (.*)$/) do |password|
-  pending # Write code here that turns the phrase above into concrete actions
+  @driver.text_field(id: 'email-input').set('test@gmail.com')
+  @driver.text_field(id: 'password-input').set(password)
+  @driver.text_field(id: 'hometown-input').set('a')
 end
 
 Then(/^I receive the correct error (.*)$/) do |error_message|
-  pending # Write code here that turns the phrase above into concrete actions
+  @driver.element(id: 'form-error-password').text == error_message
 end
