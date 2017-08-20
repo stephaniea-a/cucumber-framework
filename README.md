@@ -2,7 +2,7 @@
 
 ## Objective
 
-To a create a Cucumber framework which support Behaviour Driven Development including feature files and 
+To a create a Cucumber framework which support Behaviour Driven Development including user scenarios in order to test as a user would interact with website.
 
 ## Feature File
 A scenario Outline was used with a data table in order to test the errors recieved with incorrect log in details.
